@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blippics | {{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/drive">
+    <meta name="google-signin-client_id" content="117700549617-ol49l4bkna7ch6qbb44gubuj3t2p8vep.apps.googleusercontent.com">
+    <link rel="stylesheet" href="/stylesheets/custom.css" />
+    <link rel="stylesheet" href="/framework/dist/material.blue-purple.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="/modules/pace-progress/themes/blue/pace-theme-minimal.css" />
+    <link rel="stylesheet" href="/modules/hover.css/css/hover-min.css" />
+    <link rel="stylesheet" href="/modules/hint.css/hint.min.css" />
+    <link rel="stylesheet" href="/modules/animate.css/animate.min.css" />
+    <link rel="stylesheet" href="/modules/offline-js/themes/offline-theme-default.css" />
+    <link rel="stylesheet" href="/modules/offline-js/themes/offline-language-english.css" />
+    {{{ pageSpecificStyles }}}
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <!--<span class="mdl-layout-title">
+            Blippics
+          </span>-->
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link hvr-grow" href="https://www.facebook.com/wictor.kihlbaum">
+              <img src="/images/facebook-small.png" alt="Facebook logotype" title="Visit my Facebook" />
+            </a>
+            <a class="mdl-navigation__link hvr-grow" href="https://twitter.com/WictorKihlbaum">
+              <img src="/images/twitter-small.png" alt="Twitter logotype" title="Visit my Twitter" />
+            </a>
+            <a class="mdl-navigation__link hvr-grow" href="https://github.com/WictorKihlbaum">
+              <img src="/images/github-small.png" alt="GitHub logotype" title="Visit my GitHub" />
+            </a>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          Blippics
+        </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/">
+            <img src="/images/home-small.png" alt="Home icon" />
+            Home
+          </a>
+          <a class="mdl-navigation__link" href="/about">
+            <img src="/images/about-small.png" alt="About icon" />
+            About
+          </a>
+          <a class="mdl-navigation__link" href="/contact">
+            <img src="/images/contact-small.png" alt="Contact icon" />
+            Contact
+          </a>
+          <a class="mdl-navigation__link" href="/choose/local">
+            <img src="/images/laptop-small.png" alt="Laptop icon" />
+            Local
+          </a>
+          <a class="mdl-navigation__link" href="/choose/google-drive">
+            <img src="/images/google-drive-small.png" alt="Google Drive icon" />
+            Google Drive
+          </a>
+          <a class="mdl-navigation__link" href="/choose/dropbox">
+            <img src="/images/dropbox-small.png" alt="Dropbox icon" />
+            Dropbox
+          </a>
+          <a class="mdl-navigation__link" href="/choose/onedrive">
+            <img src="/images/onedrive.png" alt="OneDrive icon" width="32px" />
+            OneDrive
+          </a>
+          <a class="mdl-navigation__link" href="/choose/selfie">
+            <img src="/images/selfie.png" alt="Selfie icon" width="32px" />
+            Selfie
+          </a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content animated fadeIn">
+          {{{ body }}}
+        </div>
+      </main>
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            © 2017 Blippics
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li>
+              <a href="/about">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+
+      <!-- Go to top -->
+      <div id="top-button">
+        <a href="#"
+           onclick="Scroll.toTop()"
+           class="mdl-button
+                  mdl-button--fab
+                  mdl-button--primary
+                  animated zoomIn">
+          <i class="material-icons">
+            keyboard_arrow_up
+          </i>
+        </a>
+      </div>
+
+    </div>
+
+    <script src="/framework/material.min.js"></script>
+    <script src="/modules/pace-progress/pace.min.js"></script>
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/javascripts/Scroll.js"></script>
+    <script src="/modules/offline-js/offline.min.js"></script>
+    {{{ pageSpecificScripts }}}
+  </body>
+</html>
