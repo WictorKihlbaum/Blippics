@@ -1,5 +1,5 @@
 # Blippics
-Image editor web app
+A web app made with NodeJS and Express.
 
 ## About
 
