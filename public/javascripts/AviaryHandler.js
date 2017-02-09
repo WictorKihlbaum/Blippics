@@ -1,3 +1,4 @@
+import ActionButtons from './ActionButtons.js';
 
 class AviaryHandler {
 
@@ -22,8 +23,9 @@ class AviaryHandler {
 			},
 
 			onClose: userHasSaved => {
-				if (userHasSaved && !window.location.href.match('google'))
-				  ActionButtons.addEditButton(this.newURL);
+				if (userHasSaved && !window.location.href.includes('google-drive')) {
+          ActionButtons.addEditButton(this.newURL);
+				}
 			},
 
 			onError: errorObj => {
@@ -34,21 +36,24 @@ class AviaryHandler {
 	}
 
 	static handleButtons(id, url) {
-		const location = window.location.href;
+    const location = window.location.href;
+    if (location.includes('dropbox')) {
+      ActionButtons.addButtons(url);
+		}
+
 		// Add action buttons for new image.
-		switch (true) {
+		/*switch (true) {
 			case location.includes('google-drive'):
 				GoogleDriveHandler.addActionButtons(id, url);
 				break;
-
 			case location.includes('local'):
 				ActionButtons.addDownloadButton(url);
 				break;
-
-			default:
-				ActionButtons.addButtons(url);
-				break;
-		}
+      case location.includes('dropbox'):
+        ActionButtons.addButtons(url);
+        break;
+			default: ActionButtons.addButtons(url);
+		}*/
 	}
 
 	static launchEditor(id, src) {
@@ -56,6 +61,7 @@ class AviaryHandler {
 		return false;
 	}
 
-}
+};
 
-window.onload = AviaryHandler.instantiateFeather();
+module.onload = AviaryHandler.instantiateFeather();
+export default AviaryHandler;

@@ -3,11 +3,7 @@ var router = express.Router();
 
 /* GET choose page. */
 router.get('/', function(req, res, next) {
-    res.render('choose', {
-        title: 'Choose',
-        pageSpecificStyles: '',
-        pageSpecificScripts: ''
-    });
+    res.render('choose', { title: 'Choose' });
 });
 
 // Local view
@@ -28,20 +24,7 @@ router.get('/local', function(req, res, next) {
 
 // Dropbox view
 router.get('/dropbox', function(req, res, next) {
-    res.render('shared/editView', {
-        title: 'Dropbox view',
-        buttonFunction: 'Dropbox.choose(DropboxHandler.getChooserOptions())',
-        pageSpecificStyles: '',
-        pageSpecificScripts: `
-          <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="c8hfkxzclokzwl0"></script>
-          <script src="/javascripts/DropboxHandler.js"></script>
-          <script src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
-          <script src="/javascripts/AviaryHandler.js"></script>
-          <script src="/javascripts/Message.js"></script>
-          <script src="/javascripts/ActionButtons.js"></script>
-          <script src="/javascripts/Toast.js"></script>
-        `
-    });
+    res.render('shared/editView', { title: 'Dropbox view' });
 });
 
 // OneDrive view

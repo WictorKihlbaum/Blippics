@@ -1,15 +1,20 @@
+import DropboxHandler from './DropboxHandler.js';
+import AviaryHandler from './AviaryHandler.js';
+import $ from 'jquery';
 
 class ActionButtons {
 
   static addButtons(url) {
+    console.log('addButtons');
 		this.addEditButton(url);
 		this.addDownloadButton(url);
-    // Add save button.
-    const location = window.location.href;
-    if (location.match('dropbox'))
+    this.addSaveButtonDropbox(url);
+
+    /*if (location.includes('dropbox')) {
       this.addSaveButtonDropbox(url);
-    else if (location.match('onedrive'))
+    } else if (location.includes('onedrive')) {
       this.addSaveButtonOneDrive(url);
+    }*/
 	}
 
   static removeButtons() {
@@ -22,7 +27,6 @@ class ActionButtons {
 		$('#edit-button-field').html(`
 			<a href="#"
 			   id="edit-button"
-			   onclick="AviaryHandler.launchEditor('editable-image', '${url}')"
 				 aria-label="Edit image"
 				 title="Edit image"
 			   class="mdl-button
@@ -35,6 +39,10 @@ class ActionButtons {
 				</i>
 			</a>
 		`);
+
+		$('#edit-button').click(() => {
+      AviaryHandler.launchEditor('editable-image', `${url}`);
+    });
 	}
 
   static addDownloadButton(url) {
@@ -56,17 +64,21 @@ class ActionButtons {
 	}
 
   static addSaveButtonDropbox(url) {
+    console.log('Inside SaveButtonDropbox');
     $('#save-button-field').html(`
       <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary has-hover"
               id="save-button"
               aria-label="Save image on Dropbox"
-              title="Save image on Dropbox"
-              onclick="Dropbox.save(DropboxHandler.getSaverOptions('${url}'))">
+              title="Save image on Dropbox">
         <i class="material-icons" id="save-icon">
           cloud_upload
         </i>
       </button>
     `);
+
+    $('#save-button').click(() => {
+      Dropbox.save(DropboxHandler.getSaverOptions(`${url}`));
+    });
   }
 
   static addSaveButtonOneDrive(url) {
@@ -95,3 +107,5 @@ class ActionButtons {
   }
 
 };
+
+export default ActionButtons;

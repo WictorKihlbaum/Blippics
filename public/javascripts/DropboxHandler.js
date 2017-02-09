@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import ActionButtons from './ActionButtons.js';
+import Toast from './Toast.js';
+
 class DropboxHandler {
 
   static getChooserOptions() {
@@ -33,4 +37,12 @@ class DropboxHandler {
     };
   }
 
-}
+  static addClickEvent() {
+    $('#choose-button').click(() => {
+      Dropbox.choose(this.getChooserOptions());
+    });
+  }
+
+};
+
+export default DropboxHandler;

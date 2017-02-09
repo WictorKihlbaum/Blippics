@@ -7,9 +7,7 @@ class OneDriveHandler {
     const odOptions = {
       clientId: "c3e33c0d-c915-4e56-bbb5-52c74f7d040e",
       action: "download",
-      advanced: {
-        redirectUri: this.getRedirectUri()
-      },
+      advanced: {},
       success: files => {
         const url = files.value[0]['@microsoft.graph.downloadUrl'];
         $('#editable-image').attr('src', url);
@@ -21,15 +19,6 @@ class OneDriveHandler {
       }
     };
     OneDrive.open(odOptions);
-  }
-
-  /* TODO: Remove this function when app is finally hosted on Heroku.
-  *  Redirect URI field may be blank */
-  static getRedirectUri() {
-    if (window.location.origin.match('localhost')) {
-      return 'http://localhost:8888/choose/onedrive'; // Developer
-    }
-    return 'https://www.blippics.com/'; // Production
   }
 
   static launchOneDriveSaver(url) {

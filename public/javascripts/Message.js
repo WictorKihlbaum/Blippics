@@ -1,3 +1,4 @@
+import $ from 'jquery';
 
 class Message {
 
@@ -11,6 +12,9 @@ class Message {
         ${message} ${this.getCloseButton()}
 			</div>
 		`);
+		$('#close-message-button').click(() => {
+			this.remove();
+		});
 	}
 
 	static remove() {
@@ -22,8 +26,7 @@ class Message {
       <i class="material-icons"
 			   id="close-message-button"
 			   title="Close message"
-				 aria-label="Close message"
-				 onclick="Message.remove()">
+				 aria-label="Close message">
         close
 			</i>
 		`;
@@ -31,4 +34,5 @@ class Message {
 
 }
 
-window.onload = Message.init();
+module.onload = Message.init();
+export default Message;

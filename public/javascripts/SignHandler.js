@@ -2,7 +2,6 @@
 class SignHandler {
 
 	static signIn(googleUser) {
-		//const profile = googleUser.getBasicProfile();
 		this.addSignOutButton();
 		GoogleDriveHandler.checkAuth();
 	}

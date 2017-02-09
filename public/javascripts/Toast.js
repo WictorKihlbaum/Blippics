@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class Toast {
 
   static showSuccess(message) {
@@ -10,3 +12,5 @@ class Toast {
   }
 
 }
+
+export default Toast;
