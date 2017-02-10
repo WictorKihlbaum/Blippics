@@ -1,11 +1,12 @@
 import ActionButtons from './ActionButtons.js';
+import Keys from '../../API_Keys.json';
 
 class AviaryHandler {
 
 	static instantiateFeather() {
 		// Instantiate Aviary editor.
 		this.feather = new Aviary.Feather({
-			apiKey: 'eb5f4fca52634bbf94da9389bd974012',
+			apiKey: Keys.Aviary,
 			theme: 'minimum',
 			tools: 'all',
 			appendTo: '',
@@ -23,37 +24,40 @@ class AviaryHandler {
 			},
 
 			onClose: userHasSaved => {
-				if (userHasSaved && !window.location.href.includes('google-drive')) {
+				if (userHasSaved && !window.location.href.endsWith('google-drive')) {
           ActionButtons.addEditButton(this.newURL);
 				}
 			},
 
 			onError: errorObj => {
-				const message = errorObj.message;
-				Message.show(message, 'user-message-error');
+				Message.show(errorObj.message, 'user-message-error');
 			}
 		});
 	}
 
 	static handleButtons(id, url) {
-    const location = window.location.href;
-    if (location.includes('dropbox')) {
-      ActionButtons.addButtons(url);
-		}
+    // Add action buttons for new image.
+    const browserURL = window.location.href;
+    switch (true) {
 
-		// Add action buttons for new image.
-		/*switch (true) {
-			case location.includes('google-drive'):
-				GoogleDriveHandler.addActionButtons(id, url);
-				break;
-			case location.includes('local'):
-				ActionButtons.addDownloadButton(url);
-				break;
-      case location.includes('dropbox'):
+      case browserURL.endsWith('local'):
+        ActionButtons.addDownloadButton(url);
+        break;
+
+      case browserURL.endsWith('dropbox'):
         ActionButtons.addButtons(url);
         break;
-			default: ActionButtons.addButtons(url);
-		}*/
+
+      case browserURL.endsWith('onedrive'):
+        ActionButtons.addButtons(url);
+        break;
+
+      case browserURL.endsWith('google-drive'):
+        GoogleDriveHandler.addActionButtons(id, url);
+        break;
+
+      default: break;
+    }
 	}
 
 	static launchEditor(id, src) {
@@ -61,7 +65,6 @@ class AviaryHandler {
 		return false;
 	}
 
-};
+}
 
-module.onload = AviaryHandler.instantiateFeather();
 export default AviaryHandler;

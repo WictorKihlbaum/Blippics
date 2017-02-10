@@ -1,7 +1,14 @@
+import $ from 'jquery';
+import ActionButtons from './ActionButtons.js';
+import Message from './Message.js';
+import Toast from './Toast.js';
+import Keys from '../../API_Keys.json';
+
 class OneDriveHandler {
 
   // TODO: Validate file extension for choosen file.
-  // Microsoft doesn't give this functionality. Keep updated on this!
+  // Microsoft doesn't give this functionality in their API.
+  // Keep updated on this!
 
   static launchOneDrivePicker() {
     const odOptions = {
@@ -23,7 +30,7 @@ class OneDriveHandler {
 
   static launchOneDriveSaver(url) {
     const odOptions = {
-      clientId: "c3e33c0d-c915-4e56-bbb5-52c74f7d040e",
+      clientId: Keys.OneDrive,
       action: "save",
       sourceUri: url,
       fileName: "testImage.png", // TODO: Get name from API file picker.
@@ -45,4 +52,12 @@ class OneDriveHandler {
     OneDrive.save(odOptions);
   }
 
+  static addClickEvent() {
+    $('#choose-button').click(() => {
+      OneDrive.open(this.launchOneDrivePicker());
+    });
+  }
+
 }
+
+export default OneDriveHandler;

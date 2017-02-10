@@ -161,4 +161,4 @@ class SelfieHandler {
 
 }
 
-window.onload = SelfieHandler.init();
+export default SelfieHandler;

@@ -1,20 +1,20 @@
 import DropboxHandler from './DropboxHandler.js';
+import OneDriveHandler from './OneDriveHandler.js';
 import AviaryHandler from './AviaryHandler.js';
 import $ from 'jquery';
 
 class ActionButtons {
 
   static addButtons(url) {
-    console.log('addButtons');
 		this.addEditButton(url);
 		this.addDownloadButton(url);
-    this.addSaveButtonDropbox(url);
 
-    /*if (location.includes('dropbox')) {
+    const href = window.location.href;
+    if (href.includes('dropbox')) {
       this.addSaveButtonDropbox(url);
-    } else if (location.includes('onedrive')) {
+    } else if (href.includes('onedrive')) {
       this.addSaveButtonOneDrive(url);
-    }*/
+    }
 	}
 
   static removeButtons() {
@@ -64,7 +64,6 @@ class ActionButtons {
 	}
 
   static addSaveButtonDropbox(url) {
-    console.log('Inside SaveButtonDropbox');
     $('#save-button-field').html(`
       <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary has-hover"
               id="save-button"
@@ -86,13 +85,16 @@ class ActionButtons {
       <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary has-hover"
               id="save-button"
               aria-label="Save image on OneDrive"
-              title="Save image on OneDrive"
-              onclick="OneDriveHandler.launchOneDriveSaver('${url}')">
+              title="Save image on OneDrive">
         <i class="material-icons" id="save-icon">
           cloud_upload
         </i>
       </button>
     `);
+
+    $('#save-button').click(() => {
+      OneDriveHandler.launchOneDriveSaver(`${url}`);
+    });
   }
 
   static reStyleSaveButton() {
@@ -106,6 +108,6 @@ class ActionButtons {
     saveButton.removeClass('has-hover');
   }
 
-};
+}
 
 export default ActionButtons;

@@ -54,3 +54,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# API Keys / Secrets
+API_Keys.json

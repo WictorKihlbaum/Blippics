@@ -1,3 +1,6 @@
+import Message from './Message.js';
+import ActionButtons from './ActionButtons.js';
+
 
 class LocalHandler {
 
@@ -35,7 +38,7 @@ class LocalHandler {
 		// Takes file from file chooser.
 		this.fileInput.on('change', e => {
 			const file = e.originalEvent.target.files[0];
-			this.handleFile(file);
+			if (file) this.handleFile(file);
 		});
 	}
 
@@ -97,4 +100,4 @@ class LocalHandler {
 
 }
 
-window.onload = LocalHandler.init();
+export default LocalHandler;
