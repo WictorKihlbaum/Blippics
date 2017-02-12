@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="/modules/pace-progress/themes/blue/pace-theme-minimal.css" />
     <link rel="stylesheet" href="/modules/hover.css/css/hover-min.css" />
-    <link rel="stylesheet" href="/modules/hint.css/hint.min.css" />
     <link rel="stylesheet" href="/modules/animate.css/animate.min.css" />
     <link rel="stylesheet" href="/modules/offline-js/themes/offline-theme-default.css" />
     <link rel="stylesheet" href="/modules/offline-js/themes/offline-language-english.css" />
     <link rel="stylesheet" href="/modules/spinkit/css/spinners/6-chasing-dots.css" />
     <link rel="stylesheet" href="/stylesheets/selfie-styles.css" />
-    {{{ pageSpecificStyles }}}
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout">
@@ -29,15 +27,15 @@
           <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
-          <nav class="mdl-navigation">
+          <nav class="mdl-navigation" id="top-right-nav">
             <a class="mdl-navigation__link hvr-grow" href="https://www.facebook.com/wictor.kihlbaum">
-              <img src="/images/facebook-small.png" alt="Facebook logotype" title="Visit my Facebook" />
+              <img src="/images/facebook-large.png" alt="Facebook logotype" title="Visit my Facebook" />
             </a>
             <a class="mdl-navigation__link hvr-grow" href="https://twitter.com/WictorKihlbaum">
-              <img src="/images/twitter-small.png" alt="Twitter logotype" title="Visit my Twitter" />
+              <img src="/images/twitter-large.png" alt="Twitter logotype" title="Visit my Twitter" />
             </a>
             <a class="mdl-navigation__link hvr-grow" href="https://github.com/WictorKihlbaum">
-              <img src="/images/github-small.png" alt="GitHub logotype" title="Visit my GitHub" />
+              <img src="/images/github-large.png" alt="GitHub logotype" title="Visit my GitHub" />
             </a>
           </nav>
         </div>
@@ -106,27 +104,13 @@
         </div>
       </footer>
 
-      <!-- Go to top -->
-      <div id="top-button">
-        <a href="#"
-           onclick="Scroll.toTop()"
-           class="mdl-button
-                  mdl-button--fab
-                  mdl-button--primary
-                  animated zoomIn">
-          <i class="material-icons">
-            keyboard_arrow_up
-          </i>
-        </a>
-      </div>
-
-    </div>
+    </div> <!-- end mdl-layout -->
 
     <script src="/framework/material.min.js"></script>
     <script src="/modules/pace-progress/pace.min.js"></script>
     <script src="/modules/jquery/dist/jquery.min.js"></script>
-    <script src="/javascripts/Scroll.js"></script>
     <script src="/modules/offline-js/offline.min.js"></script>
+    <!-- TODO: Don't load all these scripts for all pages. -->
     <script src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
     <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="c8hfkxzclokzwl0"></script>
     <script src="https://js.live.net/v7.0/OneDrive.js"></script>

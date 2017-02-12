@@ -2,12 +2,8 @@ import $ from 'jquery';
 
 class Message {
 
-	static init() {
-		this.field = $('#user-message-field');
-	}
-
 	static show(message, id) {
-		this.field.html(`
+    $('#user-message-field').html(`
       <div id="${id}" class="user-message animated flash">
         ${message} ${this.getCloseButton()}
 			</div>
@@ -18,7 +14,7 @@ class Message {
 	}
 
 	static remove() {
-	  this.field.html('');
+    $('#user-message-field').html('');
 	}
 
 	static getCloseButton() {
@@ -34,5 +30,4 @@ class Message {
 
 }
 
-module.onload = Message.init();
 export default Message;

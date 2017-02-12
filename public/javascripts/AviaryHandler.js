@@ -1,4 +1,4 @@
-import ActionButtons from './ActionButtons.js';
+import ActionButtons from './ActionButtons';
 import Keys from '../../API_Keys.json';
 
 class AviaryHandler {

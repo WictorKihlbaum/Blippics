@@ -56,4 +56,4 @@ typings/
 .env
 
 # API Keys / Secrets
-API_Keys.json
+.API_Keys.json

@@ -1,42 +1,42 @@
-import Message from './Message.js';
-import ActionButtons from './ActionButtons.js';
+import Message from './Message';
+import ActionButtons from './ActionButtons';
+import Messages from '../../Messages.json';
 
 
 class LocalHandler {
 
 	static init() {
-    this.dropArea = $("#dropzone");
   	this.preview = $('#editable-image');
-  	this.fileInput = $('#input');
   	this.defaultImagePath = '/images/placeholder_image.png';
-  	this.invalidImageError = 'Invalid file! The file has to be a Png or Jpg/Jpeg image. Please try again.';
 		this.setupDroparea();
 	}
 
 	static setupDroparea() {
+    let dropArea = $("#dropzone");
+    let fileInput = $('#input');
 		// Prevent defaults on drag/drop events.
-		this.dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', e => {
+		dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', e => {
 			if (e.preventDefault) e.preventDefault();
 			if (e.stopPropagation) e.stopPropagation();
 		})
 		.on('click', e => {
 			// Click anywhere in Droparea to upload file.
-		  this.fileInput.click();
+		  fileInput.click();
 		})
 		.on('dragover', e => {
-			this.dropArea.css('background-color', '#E4F1FE');
+			dropArea.css('background-color', '#E4F1FE');
 		})
 		.on('dragleave', e => {
-			this.dropArea.css('background-color', 'white');
+			dropArea.css('background-color', 'white');
 		})
 		.on('drop', e => {
-			this.dropArea.css('background-color', 'white');
+			dropArea.css('background-color', 'white');
 			// Get the dropped file.
 			const file = e.originalEvent.dataTransfer.files[0];
 			this.handleFile(file);
 		});
 		// Takes file from file chooser.
-		this.fileInput.on('change', e => {
+		fileInput.on('change', e => {
 			const file = e.originalEvent.target.files[0];
 			if (file) this.handleFile(file);
 		});
@@ -55,7 +55,8 @@ class LocalHandler {
 				ActionButtons.removeButtons();
 			}
 		} else {
-			Message.show(this.invalidImageError, 'user-message-error');
+			const message = Messages.Local.error.invalidFile;
+			Message.show(message, 'user-message-error');
 			this.resetPreview();
 			ActionButtons.removeButtons();
 		}

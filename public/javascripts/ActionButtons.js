@@ -1,6 +1,6 @@
-import DropboxHandler from './DropboxHandler.js';
-import OneDriveHandler from './OneDriveHandler.js';
-import AviaryHandler from './AviaryHandler.js';
+import DropboxHandler from './DropboxHandler';
+import OneDriveHandler from './OneDriveHandler';
+import AviaryHandler from './AviaryHandler';
 import $ from 'jquery';
 
 class ActionButtons {
@@ -25,8 +25,7 @@ class ActionButtons {
 
   static addEditButton(url) {
 		$('#edit-button-field').html(`
-			<a href="#"
-			   id="edit-button"
+			<button id="edit-button"
 				 aria-label="Edit image"
 				 title="Edit image"
 			   class="mdl-button
@@ -37,7 +36,7 @@ class ActionButtons {
 			  <i class="material-icons">
 				  edit
 				</i>
-			</a>
+			</button>
 		`);
 
 		$('#edit-button').click(() => {

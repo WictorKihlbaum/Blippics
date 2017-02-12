@@ -1,9 +1,11 @@
-import LocalHandler from './LocalHandler.js';
-import DropboxHandler from './DropboxHandler.js';
-import OneDriveHandler from './OneDriveHandler.js';
-import AviaryHandler from './AviaryHandler.js';
-import SelfieHandler from './SelfieHandler.js';
+import LocalHandler from './LocalHandler';
+import DropboxHandler from './DropboxHandler';
+import OneDriveHandler from './OneDriveHandler';
+import AviaryHandler from './AviaryHandler';
+import SelfieHandler from './SelfieHandler';
 
+
+// TODO: Change the name "ActionButtons" to "ButtonHandler".
 
 const url = window.location.href;
 

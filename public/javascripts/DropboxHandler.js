@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import ActionButtons from './ActionButtons.js';
-import Toast from './Toast.js';
+import ActionButtons from './ActionButtons';
+import Toast from './Toast';
 
 class DropboxHandler {
 

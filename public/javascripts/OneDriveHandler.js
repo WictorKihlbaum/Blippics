@@ -1,28 +1,28 @@
 import $ from 'jquery';
-import ActionButtons from './ActionButtons.js';
-import Message from './Message.js';
-import Toast from './Toast.js';
+import ActionButtons from './ActionButtons';
+import Message from './Message';
+import Toast from './Toast';
 import Keys from '../../API_Keys.json';
+import Messages from '../../Messages.json';
 
 class OneDriveHandler {
 
-  // TODO: Validate file extension for choosen file.
+  // TODO: Validate file type (extension) for choosen file.
   // Microsoft doesn't give this functionality in their API.
   // Keep updated on this!
 
   static launchOneDrivePicker() {
     const odOptions = {
-      clientId: "c3e33c0d-c915-4e56-bbb5-52c74f7d040e",
+      clientId: Keys.OneDrive,
       action: "download",
-      advanced: {},
       success: files => {
         const url = files.value[0]['@microsoft.graph.downloadUrl'];
         $('#editable-image').attr('src', url);
         ActionButtons.removeButtons();
         ActionButtons.addEditButton(url);
       },
-      error: errorMessage => {
-        Message.show(errorMessage, 'user-message-error');
+      error: e => {
+        Message.show(e, 'user-message-error');
       }
     };
     OneDrive.open(odOptions);
@@ -33,20 +33,18 @@ class OneDriveHandler {
       clientId: Keys.OneDrive,
       action: "save",
       sourceUri: url,
-      fileName: "testImage.png", // TODO: Get name from API file picker.
+      fileName: "testImage.png", // TODO: Don't hard code this.
       openInNewWindow: true,
-      advanced: {},
       success: files => {
-        const message = 'Image was successfully uploaded to your OneDrive!';
-        Toast.showSuccess(message);
+        Toast.showSuccess(Messages.OneDrive.success.upload);
         $('.spinner').addClass('is-hidden');
         ActionButtons.reStyleSaveButton();
       },
       progress: progress => {
         $('.spinner').removeClass('is-hidden');
       },
-      error: errorMessage => {
-        Message.show(errorMessage, 'user-message-error');
+      error: e => {
+        Message.show(e, 'user-message-error');
       }
     };
     OneDrive.save(odOptions);

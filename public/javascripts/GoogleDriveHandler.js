@@ -17,6 +17,7 @@ class GoogleDriveHandler {
   	this.SCOPES = ['https://www.googleapis.com/auth/drive'];
   }
 
+	// Put these in a separate file and import instead.
   static setupMessages() {
     this.uploadSuccessMessage = 'The image was successfully uploaded to your Google Drive!';
   	this.removeSuccessMessage = 'The image was successfully removed from your Google Drive!';
