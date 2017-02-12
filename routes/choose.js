@@ -26,20 +26,7 @@ router.get('/onedrive', function(req, res, next) {
 
 // Google Drive view
 router.get('/google-drive', function(req, res, next) {
-    res.render('googleDrive', {
-        title: 'Google Drive view',
-        pageSpecificScripts: `
-          <script src="https://apis.google.com/js/platform.js"></script>
-          <script src="https://apis.google.com/js/client.js"></script>
-          <script src="/javascripts/GoogleDriveHandler.js"></script>
-          <script src="/javascripts/SignHandler.js"></script>
-          <script>
-            function onSignIn(googleUser) {
-              SignHandler.signIn(googleUser);
-            }
-          </script>
-        `
-    });
+    res.render('googleDrive', { title: 'Google Drive view' });
 });
 
 // Selfie view

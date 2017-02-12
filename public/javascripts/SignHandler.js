@@ -1,3 +1,4 @@
+import GoogleDriveHandler from './GoogleDriveHandler';
 
 class SignHandler {
 
@@ -33,3 +34,5 @@ class SignHandler {
   }
 
 }
+
+export default SignHandler;

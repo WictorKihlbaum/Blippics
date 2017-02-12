@@ -1,42 +1,27 @@
+import AviaryHandler from './AviaryHandler';
+import Message from './Message';
+import Toast from './Toast';
+import Messages from '../../Messages.json';
+import Keys from '../../API_Keys.json';
+
 
 class GoogleDriveHandler {
 
   static init() {
-    this.setupVariables();
-		this.setupMessages();
+    this.imageArray = [];
+    this.imageList = $('#image-list');
+    this.currentImageName = '';
+    this.lastEditedImageID = '';
 		$('#loading-animation').hide();
-		GoogleDriveHandler.imageList = $('#image-list');
-  }
-
-  static setupVariables() {
-  	this.imageArray = [];
-  	this.imageList = null;
-  	this.currentImageName = '';
-  	this.lastEditedImageID = '';
-  	this.CLIENT_ID = '117700549617-ol49l4bkna7ch6qbb44gubuj3t2p8vep.apps.googleusercontent.com';
-  	this.SCOPES = ['https://www.googleapis.com/auth/drive'];
-  }
-
-	// Put these in a separate file and import instead.
-  static setupMessages() {
-    this.uploadSuccessMessage = 'The image was successfully uploaded to your Google Drive!';
-  	this.removeSuccessMessage = 'The image was successfully removed from your Google Drive!';
-  	this.uploadErrorMessage = 'The image failed to upload to your Google Drive!';
-  	this.driveErrorMessage = 'Error! Could not get image from Google Drive.';
-  	this.amazonErrorMessage = `
-  		An error occurred! Failed to get the edited image.
-  		Therefore an upload to your Google Drive can not be pursued.
-  	`;
-  	this.noValidImages = 'No valid images (Png, Jpg/Jpeg) found in your Google Drive.';
   }
 
 	/**
 	 * Check if current user has authorized GoogleDriveHandler application.
 	 */
   static checkAuth() {
-	gapi.auth.authorize({
-      'client_id': GoogleDriveHandler.CLIENT_ID,
-      'scope': GoogleDriveHandler.SCOPES.join(' '),
+	  gapi.auth.authorize({
+      'client_id': Keys.Google,
+      'scope': ['https://www.googleapis.com/auth/drive'].join(' '),
       'immediate': true
     }, GoogleDriveHandler.handleAuthResult);
   }
@@ -94,7 +79,7 @@ class GoogleDriveHandler {
 					GoogleDriveHandler.renderImage(image);
 				}
 			} else {
-				$('#top-text').html(GoogleDriveHandler.noValidImages);
+				$('#top-text').html(Messages.Google.info.noValidImages);
 			}
 			$('#loading-animation').hide();
 		});
@@ -198,8 +183,9 @@ class GoogleDriveHandler {
 
 	static showConfirmation(id, name) {
 		const dialog = $('#confirm-dialog')[0];
-    if (!dialog.showModal)
-		  dialogPolyfill.registerDialog(dialog);
+    if (!dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+		}
 
     GoogleDriveHandler.addConfirmationText(name);
     dialog.showModal();
@@ -209,8 +195,9 @@ class GoogleDriveHandler {
 			GoogleDriveHandler.deleteImageFromDrive(id);
     });
 
-    dialog.querySelector('.cancel').addEventListener('click', () =>
-		  dialog.close());
+    dialog.querySelector('.cancel').addEventListener('click', () => {
+      dialog.close();
+		});
 	}
 
 	/**
@@ -228,7 +215,7 @@ class GoogleDriveHandler {
     request.execute(response => {
  		  if (!response.hasOwnProperty('code')) {
  			  GoogleDriveHandler.requestImages();
- 				Toast.showSuccess(GoogleDriveHandler.removeSuccessMessage);
+ 				Toast.showSuccess(Messages.Google.success.remove);
  			} else {
 			  Message.show(`
 				  Image couldn't be deleted.
@@ -260,7 +247,7 @@ class GoogleDriveHandler {
 		};
 
 		xhr.onerror = () =>
-			Message.show(GoogleDriveHandler.driveErrorMessage, 'user-message-error');
+			Message.show(Messages.Google.error.drive, 'user-message-error');
 
 		xhr.open('GET', url);
 		xhr.responseType = 'blob';
@@ -278,7 +265,7 @@ class GoogleDriveHandler {
 			GoogleDriveHandler.postImageToDrive(xhr.response);
 
 		xhr.onerror = () =>
-			Message.show(GoogleDriveHandler.amazonErrorMessage, 'user-message-error');
+			Message.show(Messages.Google.error.drive, 'user-message-error');
 
 		xhr.open('GET', url);
 		xhr.responseType = 'blob';
@@ -326,11 +313,11 @@ class GoogleDriveHandler {
 			if (!callback) {
         callback = file => {
 					if (file) {
-						Toast.showSuccess(GoogleDriveHandler.uploadSuccessMessage);
+						Toast.showSuccess(Messages.Google.success.upload);
 						// Request and render all images again to show the newly uploaded one.
 						GoogleDriveHandler.requestImages();
 					} else {
-						Message.show(GoogleDriveHandler.uploadErrorMessage, 'user-message-error');
+						Message.show(Messages.Google.error.upload, 'user-message-error');
 					}
 					document.body.className = 'cursor-default';
       	};
@@ -354,4 +341,4 @@ class GoogleDriveHandler {
 
 }
 
-window.onload = GoogleDriveHandler.init();
+export default GoogleDriveHandler;

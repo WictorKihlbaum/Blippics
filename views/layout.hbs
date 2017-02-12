@@ -111,10 +111,16 @@
     <script src="/modules/jquery/dist/jquery.min.js"></script>
     <script src="/modules/offline-js/offline.min.js"></script>
     <!-- TODO: Don't load all these scripts for all pages. -->
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="https://apis.google.com/js/client.js"></script>
+    <!--<script>
+      function onSignIn(googleUser) {
+        SignHandler.signIn(googleUser);
+      }
+    </script>-->
     <script src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
     <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="c8hfkxzclokzwl0"></script>
     <script src="https://js.live.net/v7.0/OneDrive.js"></script>
-    {{{ pageSpecificScripts }}}
     <script src="/builds/bundle.min.js"></script>
   </body>
 </html>

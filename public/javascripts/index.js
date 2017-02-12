@@ -3,6 +3,7 @@ import DropboxHandler from './DropboxHandler';
 import OneDriveHandler from './OneDriveHandler';
 import AviaryHandler from './AviaryHandler';
 import SelfieHandler from './SelfieHandler';
+import GoogleDriveHandler from './GoogleDriveHandler';
 
 
 // TODO: Change the name "ActionButtons" to "ButtonHandler".
@@ -13,6 +14,11 @@ switch (true) {
 
   case url.endsWith('local'):
     LocalHandler.init();
+    AviaryHandler.instantiateFeather();
+    break;
+
+  case url.endsWith('google-drive'):
+    GoogleDriveHandler.init();
     AviaryHandler.instantiateFeather();
     break;
 

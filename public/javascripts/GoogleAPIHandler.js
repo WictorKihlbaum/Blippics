@@ -1,3 +1,7 @@
+import GoogleDriveHandler from './GoogleDriveHandler';
+import Toast from './Toast';
+import Message from './Message';
+import Keys from '../../API_Keys.json';
 
 class GoogleAPIHandler {
 
@@ -6,8 +10,8 @@ class GoogleAPIHandler {
 	 */
 	static checkAuth() {
 		gapi.auth.authorize({
-      'client_id': GoogleDriveHandler.CLIENT_ID,
-      'scope': GoogleDriveHandler.SCOPES.join(' '),
+      'client_id': Keys.Google,
+      'scope': ['https://www.googleapis.com/auth/drive'].join(' '),
       'immediate': true
     }, GoogleDriveHandler.handleAuthResult);
 	}
@@ -55,11 +59,7 @@ class GoogleAPIHandler {
 			} else {
 				$('#top-text').html(GoogleDriveHandler.noValidImages);
 			}
-
 			$('#loading-animation').hide();
-			if (images.length > 8) {
-				GoogleDriveHandler.setupPagination();
-			}
 		});
 	}
 
@@ -70,7 +70,6 @@ class GoogleAPIHandler {
    */
  	static deleteImageFromDrive(id) {
  		document.body.className = 'cursor-wait';
-
  	  const request = gapi.client.drive.files.delete({
        'fileId': id
     });
@@ -80,9 +79,8 @@ class GoogleAPIHandler {
  			  GoogleDriveHandler.requestImages();
  				Toast.showSuccess(GoogleDriveHandler.removeSuccessMessage);
  			} else {
-			  Message.show(`
-				  Image couldn't be deleted.
-					Details: ${response.code}: ${response.message}`,
+			  Message.show(
+			  	`Image couldn't be deleted. Details: ${response.code}: ${response.message}`,
 					'user-message-error'
 				);
  			}
@@ -145,3 +143,5 @@ class GoogleAPIHandler {
 	}
 
 }
+
+export default GoogleAPIHandler;
