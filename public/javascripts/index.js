@@ -6,7 +6,7 @@ import SelfieHandler from './SelfieHandler';
 import GoogleDriveHandler from './GoogleDriveHandler';
 
 
-// TODO: Change the name "ActionButtons" to "ButtonHandler". sadsasadsad
+// TODO: Change the name "ActionButtons" to "ButtonHandler".
 
 const url = window.location.href;
 
