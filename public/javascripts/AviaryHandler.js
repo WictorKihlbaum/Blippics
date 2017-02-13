@@ -1,5 +1,5 @@
 import ButtonHandler from './ButtonHandler';
-import Keys from '../../API_Keys.json';
+import Secrets from '../../Secrets.json';
 import Message from './Message';
 
 
@@ -8,7 +8,7 @@ class AviaryHandler {
 	static instantiateFeather() {
 		// Instantiate editor.
 		this.feather = new Aviary.Feather({
-			apiKey: Keys.Aviary,
+			apiKey: Secrets.Aviary,
 			theme: 'minimum',
 			tools: 'all',
 			appendTo: '',
@@ -18,12 +18,14 @@ class AviaryHandler {
 			closeDelay: 500,
 
 			onSave: (imageID, newURL) => {
-				this.newURL = newURL; // Save url for later use.
-				$('#' + imageID).attr('src', newURL); // Show the new edited image.
-        this.feather.close(); // Close editor.
+				this.newURL = newURL; // Save url for use in onClose().
+        document.getElementById('dropzone').style.backgroundImage = 'url('+newURL+')';
+        //document.getElementById('image-preview').setAttribute('src', `${newURL}`);
+        this.feather.close();
 			},
 			onClose: userHasSaved => {
 				if (userHasSaved) {
+          document.getElementById('edit-button').remove();
 				  // Update edit button and add save button.
           ButtonHandler.addEditButton(this.newURL);
           ButtonHandler.addSaveButton(this.newURL);

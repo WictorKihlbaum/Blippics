@@ -1,4 +1,9 @@
 
+body {
+    background-image: url("../images/body-bg.jpg");
+    background-size: cover;
+}
+
 .mdl-layout__drawer-button,
 .mdl-mini-footer,
 .mdl-logo {
@@ -192,13 +197,21 @@ h1 {
 
 #dropzone {
     padding: 10px;
-    border-radius: 15px;
-    border: 4px solid #AA00FF;
+    border-radius: 6px;
     min-height: 600px;
+    background-color: rgba(255,255,255,0.5);
 
-    /*background-image: url('../images/placeholder_image.png');
+    background-image: url('../images/placeholder_image.png');
     background-position: center;
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
+}
+/* ---NOTE FOR FUTURE---
+ * The Aviary editor has to work with an image element.
+ * However, I don't want that. I use the background as
+ * presentation instead. This is why I hide this image element.
+ */
+#image-preview {
+    display: none;
 }
 #editable-image {
     max-width: 100%;

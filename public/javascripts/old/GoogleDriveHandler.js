@@ -2,7 +2,7 @@ import AviaryHandler from '../AviaryHandler';
 import Message from '../Message';
 import Toast from './Toast';
 import Messages from '../../../Messages.json';
-import Keys from '../../../API_Keys.json';
+import Keys from '../../../Secrets.json';
 
 
 class GoogleDriveHandler {

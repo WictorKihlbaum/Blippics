@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import ActionButtons from '../ButtonHandler';
-import Secrets from '../../../API_Keys.json';
+import Secrets from '../../../Secrets.json';
 
 class GooglePickerHandler {
 

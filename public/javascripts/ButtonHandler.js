@@ -1,43 +1,46 @@
 import AviaryHandler from './AviaryHandler';
-import $ from 'jquery';
 import Button from './Button';
-import Secrets from '../../API_Keys.json';
+import Secrets from '../../Secrets.json';
 import Message from './Message';
 
 
 class ButtonHandler {
 
-  static addChooseButtonFunctionality() {
-    const button = new Button('choose', 'photo');
+  static addChooseButton() {
+    let button = new Button('choose', 'photo');
 
-    $('#choose-button').click(() => {
+    button.addEventListener('click', () => {
       filepicker.setKey(Secrets.Filepicker);
       filepicker.pick(
         {
           mimetypes: ['image/png', 'image/jpg', 'image/jpeg'],
           services: ['SKYDRIVE', 'COMPUTER', 'GOOGLE_DRIVE', 'DROPBOX', 'WEBCAM'],
-          language: 'en',
-          customCss: '//localhost:8888/stylesheets/filepicker-dialog.css'
+          language: 'en'
         },
         function onSuccess(blob) {
+          ButtonHandler.removeButtons();
           // Save mimetype for later use.
           ButtonHandler.imageMimetype = blob.mimetype;
           // Show image and add edit button.
-          $('#image-preview').attr('src', blob.url);
+          document.getElementById('dropzone').style.backgroundImage = 'url('+blob.url+')';
+          //document.getElementById('image-preview').setAttribute('src', `${blob.url}`);
           ButtonHandler.addEditButton(blob.url);
           AviaryHandler.instantiateFeather(); // TODO: Make better solution.
         },
         function onError(fpError) {
+          console.log(fpError);
           Message.show(fpError.toString(), 'user-message-error');
         }
       );
     });
+    document.getElementById('choose-button-field').appendChild(button);
   }
 
   static addSaveButton(url) {
-    const button = new Button('save');
-    $('#save-button-field').html(button);
-    $('#save-button').click(() => {
+    let button = new Button('save');
+    let buttonField = document.getElementById('save-button-field');
+    buttonField.appendChild(button);
+    button.addEventListener('click', () => {
       filepicker.exportFile(
         url,
         {
@@ -50,18 +53,25 @@ class ButtonHandler {
     });
   }
 
-  static removeButtons() {
-    $('#edit-button').remove();
-    $('#save-button').remove();
-  }
-
   static addEditButton(url) {
-    const button = new Button('edit');
-    $('#edit-button-field').html(button);
-		$('#edit-button').click(() => {
+    let button = new Button('edit');
+    let buttonField = document.getElementById('edit-button-field');
+    buttonField.appendChild(button);
+    button.addEventListener('click', () => {
       AviaryHandler.launchEditor('image-preview', `${url}`);
     });
 	}
+
+	static removeButtons() {
+    const editButton = document.getElementById('edit-button');
+    const saveButton = document.getElementById('save-button');
+    if (editButton) {
+      editButton.remove();
+    }
+    if (saveButton) {
+      saveButton.remove();
+    }
+  }
 
 }
 

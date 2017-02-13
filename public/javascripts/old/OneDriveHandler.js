@@ -2,7 +2,7 @@ import $ from 'jquery';
 import ActionButtons from '../ButtonHandler';
 import Message from '../Message';
 import Toast from './Toast';
-import Keys from '../../../API_Keys.json';
+import Keys from '../../../Secrets.json';
 import Messages from '../../../Messages.json';
 
 class OneDriveHandler {

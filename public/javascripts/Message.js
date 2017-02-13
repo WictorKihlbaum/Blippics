@@ -1,20 +1,17 @@
-import $ from 'jquery';
 
 class Message {
 
 	static show(message, id) {
-    $('#user-message-field').html(`
-      <div id="${id}" class="user-message animated flash">
+		let messageField = document.getElementById('user-message-field');
+		messageField.innerHTML = `
+			<div id="${id}" class="user-message animated flash">
         ${message} ${this.getCloseButton()}
 			</div>
-		`);
-		$('#close-message-button').click(() => {
-			this.remove();
+		`;
+		let closeButton = document.getElementById('close-message-button');
+		closeButton.addEventListener('click', () => {
+      document.getElementById('user-message-field').innerHTML = '';
 		});
-	}
-
-	static remove() {
-    $('#user-message-field').html('');
 	}
 
 	static getCloseButton() {
