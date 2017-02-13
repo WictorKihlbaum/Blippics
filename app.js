@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var contact = require('./routes/contact');
 var about = require('./routes/about');
 var choose = require('./routes/choose');
+var picker = require('./routes/picker');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/', index);
 app.use('/contact', contact);
 app.use('/about', about);
 app.use('/choose', choose);
+app.use('/picker', picker);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

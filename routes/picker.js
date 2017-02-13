@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET about page. */
+/* GET picker page. */
 router.get('/', function(req, res, next) {
-    res.render('about', { title: 'About' });
+  res.render('picker', { title: 'Picker' });
 });
 
 module.exports = router;
