@@ -1,7 +1,7 @@
 import GoogleDriveHandler from './GoogleDriveHandler';
 import Toast from './Toast';
-import Message from './Message';
-import Keys from '../../API_Keys.json';
+import Message from '../Message';
+import Keys from '../../../API_Keys.json';
 
 class GoogleAPIHandler {
 

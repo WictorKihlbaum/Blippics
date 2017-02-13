@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import ActionButtons from './ActionButtons';
-import Message from './Message';
+import ActionButtons from '../ButtonHandler';
+import Message from '../Message';
 import Toast from './Toast';
-import Keys from '../../API_Keys.json';
-import Messages from '../../Messages.json';
+import Keys from '../../../API_Keys.json';
+import Messages from '../../../Messages.json';
 
 class OneDriveHandler {
 

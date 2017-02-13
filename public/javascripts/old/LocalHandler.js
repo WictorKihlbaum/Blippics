@@ -1,6 +1,6 @@
-import Message from './Message';
-import ActionButtons from './ActionButtons';
-import Messages from '../../Messages.json';
+import Message from '../Message';
+import ActionButtons from '../ButtonHandler';
+import Messages from '../../../Messages.json';
 
 
 class LocalHandler {

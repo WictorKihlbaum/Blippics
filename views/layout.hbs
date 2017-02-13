@@ -3,8 +3,6 @@
   <head>
     <title>Blippics | {{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/drive">
-    <meta name="google-signin-client_id" content="117700549617-ol49l4bkna7ch6qbb44gubuj3t2p8vep.apps.googleusercontent.com">
     <link rel="stylesheet" href="/stylesheets/custom.css" />
     <link rel="stylesheet" href="/framework/dist/material.blue-purple.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -13,18 +11,11 @@
     <link rel="stylesheet" href="/modules/animate.css/animate.min.css" />
     <link rel="stylesheet" href="/modules/offline-js/themes/offline-theme-default.css" />
     <link rel="stylesheet" href="/modules/offline-js/themes/offline-language-english.css" />
-    <link rel="stylesheet" href="/modules/spinkit/css/spinners/6-chasing-dots.css" />
-    <link rel="stylesheet" href="/stylesheets/selfie-styles.css" />
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
         <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <!--<span class="mdl-layout-title">
-            Blippics
-          </span>-->
-          <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation -->
           <nav class="mdl-navigation" id="top-right-nav">
@@ -56,26 +47,6 @@
           <a class="mdl-navigation__link" href="/contact">
             <img src="/images/contact-small.png" alt="Contact icon" />
             Contact
-          </a>
-          <a class="mdl-navigation__link" href="/choose/local">
-            <img src="/images/laptop-small.png" alt="Laptop icon" />
-            Local
-          </a>
-          <a class="mdl-navigation__link" href="/choose/google-drive">
-            <img src="/images/google-drive-small.png" alt="Google Drive icon" />
-            Google Drive
-          </a>
-          <a class="mdl-navigation__link" href="/choose/dropbox">
-            <img src="/images/dropbox-small.png" alt="Dropbox icon" />
-            Dropbox
-          </a>
-          <a class="mdl-navigation__link" href="/choose/onedrive">
-            <img src="/images/onedrive.png" alt="OneDrive icon" width="32px" />
-            OneDrive
-          </a>
-          <a class="mdl-navigation__link" href="/choose/selfie">
-            <img src="/images/selfie.png" alt="Selfie icon" width="32px" />
-            Selfie
           </a>
         </nav>
       </div>
@@ -111,6 +82,5 @@
     <script src="/modules/jquery/dist/jquery.min.js"></script>
     <script src="/modules/offline-js/offline.min.js"></script>
     {{{ scripts }}}
-    <script src="/builds/bundle.min.js"></script>
   </body>
 </html>

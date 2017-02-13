@@ -1,10 +1,12 @@
-import ActionButtons from './ActionButtons';
+import ButtonHandler from './ButtonHandler';
 import Keys from '../../API_Keys.json';
+import Message from './Message';
+
 
 class AviaryHandler {
 
 	static instantiateFeather() {
-		// Instantiate Aviary editor.
+		// Instantiate editor.
 		this.feather = new Aviary.Feather({
 			apiKey: Keys.Aviary,
 			theme: 'minimum',
@@ -16,48 +18,21 @@ class AviaryHandler {
 			closeDelay: 500,
 
 			onSave: (imageID, newURL) => {
-				this.newURL = newURL;
-        // Show the new edited image.
-				$('#' + imageID).attr('src', newURL);
-        this.handleButtons(imageID, newURL);
-        this.feather.close();
+				this.newURL = newURL; // Save url for later use.
+				$('#' + imageID).attr('src', newURL); // Show the new edited image.
+        this.feather.close(); // Close editor.
 			},
-
 			onClose: userHasSaved => {
-				if (userHasSaved && !window.location.href.endsWith('google-drive')) {
-          ActionButtons.addEditButton(this.newURL);
+				if (userHasSaved) {
+				  // Update edit button and add save button.
+          ButtonHandler.addEditButton(this.newURL);
+          ButtonHandler.addSaveButton(this.newURL);
 				}
 			},
-
-			onError: errorObj => {
-				Message.show(errorObj.message, 'user-message-error');
+			onError: error => {
+				Message.show(error.message, 'user-message-error');
 			}
 		});
-	}
-
-	static handleButtons(id, url) {
-    // Add action buttons for new image.
-    const browserURL = window.location.href;
-    switch (true) {
-
-      case browserURL.endsWith('local'):
-        ActionButtons.addDownloadButton(url);
-        break;
-
-      case browserURL.endsWith('dropbox'):
-        ActionButtons.addButtons(url);
-        break;
-
-      case browserURL.endsWith('onedrive'):
-        ActionButtons.addButtons(url);
-        break;
-
-      case browserURL.endsWith('google-drive'):
-        GoogleDriveHandler.addActionButtons(id, url);
-        break;
-
-      default: break;
-    }
 	}
 
 	static launchEditor(id, src) {

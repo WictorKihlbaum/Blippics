@@ -1,0 +1,36 @@
+<div id="editview-page-container">
+
+  <h1 class="mdl-typography--display-1 mdl-color-text--primary">
+    Blippics {{ title }}
+  </h1>
+
+  <!-- Response messages will be shown here. -->
+  <span id="user-message-field"></span>
+
+  <div class="mdl-grid" id="image-container">
+    <div class="mdl-cell mdl-cell--11-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+      <div id="dropzone">
+        <img src="/images/placeholder_image2.png"
+             alt="Preview of loaded image"
+             id="image-preview" />
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--1-col mdl-cell--12-col-tablet mdl-cell--12-col-phone" id="action-buttons-field">
+      <div id="choose-button-field">
+
+        <!-- Functionality is added from ButtonHandler.js -->
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--primary animated bounceIn"
+                id="choose-button"
+                title="Choose image"
+                aria-label="Choose image">
+          <i class="material-icons">
+            photo
+          </i>
+        </button>
+
+      </div>
+      <span id="edit-button-field"></span>
+      <span id="save-button-field"></span>
+    </div>
+  </div>
+</div>

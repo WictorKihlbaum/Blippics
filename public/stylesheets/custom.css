@@ -9,9 +9,6 @@
     font-weight: bold;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:nth-child(3) {
-    border-bottom: 1px solid #E0E0E0;
-}
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link img {
     margin-right: 8px;
 }
