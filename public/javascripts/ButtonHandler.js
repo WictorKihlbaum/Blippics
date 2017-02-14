@@ -2,6 +2,7 @@ import AviaryHandler from './AviaryHandler';
 import Button from './Button';
 import Secrets from '../../Secrets.json';
 import Message from './Message';
+import $ from './Helper';
 
 
 class ButtonHandler {
@@ -22,8 +23,8 @@ class ButtonHandler {
           // Save mimetype for later use.
           ButtonHandler.imageMimetype = blob.mimetype;
           // Show image and add edit button.
-          document.getElementById('dropzone').style.backgroundImage = 'url('+blob.url+')';
-          document.getElementById('image-preview').setAttribute('src', `${blob.url}`);
+          $('dropzone').style.backgroundImage = 'url('+blob.url+')';
+          $('image-preview').setAttribute('src', `${blob.url}`);
           ButtonHandler.addEditButton(blob.url);
           AviaryHandler.instantiateFeather(); // TODO: Make better solution.
         },
@@ -33,12 +34,12 @@ class ButtonHandler {
         }
       );
     });
-    document.getElementById('choose-button-field').appendChild(button);
+    $('choose-button-field').appendChild(button);
   }
 
   static addSaveButton(url) {
     let button = new Button('save');
-    let buttonField = document.getElementById('save-button-field');
+    let buttonField = $('save-button-field');
     buttonField.appendChild(button);
     button.addEventListener('click', () => {
       filepicker.exportFile(
@@ -55,7 +56,7 @@ class ButtonHandler {
 
   static addEditButton(url) {
     let button = new Button('edit');
-    let buttonField = document.getElementById('edit-button-field');
+    let buttonField = $('edit-button-field');
     buttonField.appendChild(button);
     button.addEventListener('click', () => {
       AviaryHandler.launchEditor('image-preview', `${url}`);
@@ -63,8 +64,8 @@ class ButtonHandler {
 	}
 
 	static removeButtons() {
-    const editButton = document.getElementById('edit-button');
-    const saveButton = document.getElementById('save-button');
+    const editButton = $('edit-button');
+    const saveButton = $('save-button');
     if (editButton) editButton.remove();
     if (saveButton) saveButton.remove();
   }

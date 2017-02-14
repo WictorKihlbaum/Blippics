@@ -1,14 +1,15 @@
+import $ from './Helper';
 
 class Message {
 
 	static show(message, id) {
-		let messageField = document.getElementById('user-message-field');
+		let messageField = $('user-message-field');
 		messageField.innerHTML = `
 			<div id="${id}" class="user-message animated flash">
         ${message} ${this.getCloseButton()}
 			</div>
 		`;
-		let closeButton = document.getElementById('close-message-button');
+		let closeButton = $('close-message-button');
 		closeButton.addEventListener('click', () => {
       document.getElementById('user-message-field').innerHTML = '';
 		});
