@@ -14,7 +14,7 @@ class ButtonHandler {
       filepicker.pick(
         {
           mimetypes: ['image/png', 'image/jpg', 'image/jpeg'],
-          services: ['SKYDRIVE', 'COMPUTER', 'GOOGLE_DRIVE', 'DROPBOX', 'WEBCAM'],
+          services: ['SKYDRIVE', 'COMPUTER', 'GOOGLE_DRIVE', 'DROPBOX','FLICKR', 'WEBCAM'],
           language: 'en'
         },
         function onSuccess(blob) {
@@ -46,7 +46,7 @@ class ButtonHandler {
         {
           suggestedFilename: 'newImage',
           mimetype: ButtonHandler.imageMimetype,
-          services: ['SKYDRIVE','COMPUTER','GOOGLE_DRIVE','DROPBOX'],
+          services: ['SKYDRIVE','COMPUTER','GOOGLE_DRIVE','DROPBOX', 'FLICKR'],
           language: 'en'
         }
       );
@@ -65,12 +65,8 @@ class ButtonHandler {
 	static removeButtons() {
     const editButton = document.getElementById('edit-button');
     const saveButton = document.getElementById('save-button');
-    if (editButton) {
-      editButton.remove();
-    }
-    if (saveButton) {
-      saveButton.remove();
-    }
+    if (editButton) editButton.remove();
+    if (saveButton) saveButton.remove();
   }
 
 }
