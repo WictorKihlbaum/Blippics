@@ -20,7 +20,7 @@ class AviaryHandler {
 			onSave: (imageID, newURL) => {
 				this.newURL = newURL; // Save url for use in onClose().
         document.getElementById('dropzone').style.backgroundImage = 'url('+newURL+')';
-        //document.getElementById('image-preview').setAttribute('src', `${newURL}`);
+        document.getElementById('image-preview').setAttribute('src', `${newURL}`);
         this.feather.close();
 			},
 			onClose: userHasSaved => {

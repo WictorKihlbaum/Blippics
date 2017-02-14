@@ -23,7 +23,7 @@ class ButtonHandler {
           ButtonHandler.imageMimetype = blob.mimetype;
           // Show image and add edit button.
           document.getElementById('dropzone').style.backgroundImage = 'url('+blob.url+')';
-          //document.getElementById('image-preview').setAttribute('src', `${blob.url}`);
+          document.getElementById('image-preview').setAttribute('src', `${blob.url}`);
           ButtonHandler.addEditButton(blob.url);
           AviaryHandler.instantiateFeather(); // TODO: Make better solution.
         },
