@@ -2,13 +2,14 @@ import AviaryHandler from './AviaryHandler';
 import Button from './Button';
 import Secrets from '../../Secrets.json';
 import Message from './Message';
-import $ from './Helper';
+import ID from './Helper';
 
 
 class ButtonHandler {
 
   static addChooseButton() {
-    let button = new Button('choose', 'photo');
+    const button = new Button('choose', 'photo');
+    const self = ButtonHandler;
 
     button.addEventListener('click', () => {
       filepicker.setKey(Secrets.Filepicker);
@@ -19,13 +20,13 @@ class ButtonHandler {
           language: 'en'
         },
         function onSuccess(blob) {
-          ButtonHandler.removeButtons();
+          self.removeButtons();
           // Save mimetype for later use.
-          ButtonHandler.imageMimetype = blob.mimetype;
+          self.imageMimetype = blob.mimetype;
           // Show image and add edit button.
-          $('dropzone').style.backgroundImage = 'url('+blob.url+')';
-          $('image-preview').setAttribute('src', `${blob.url}`);
-          ButtonHandler.addEditButton(blob.url);
+          ID('dropzone').style.backgroundImage = 'url('+blob.url+')';
+          ID('image-preview').setAttribute('src', `${blob.url}`);
+          self.addEditButton(blob.url);
           AviaryHandler.instantiateFeather(); // TODO: Make better solution.
         },
         function onError(fpError) {
@@ -34,12 +35,12 @@ class ButtonHandler {
         }
       );
     });
-    $('choose-button-field').appendChild(button);
+    ID('choose-button-field').appendChild(button);
   }
 
   static addSaveButton(url) {
-    let button = new Button('save');
-    let buttonField = $('save-button-field');
+    const button = new Button('save');
+    const buttonField = ID('save-button-field');
     buttonField.appendChild(button);
     button.addEventListener('click', () => {
       filepicker.exportFile(
@@ -55,8 +56,8 @@ class ButtonHandler {
   }
 
   static addEditButton(url) {
-    let button = new Button('edit');
-    let buttonField = $('edit-button-field');
+    const button = new Button('edit');
+    const buttonField = ID('edit-button-field');
     buttonField.appendChild(button);
     button.addEventListener('click', () => {
       AviaryHandler.launchEditor('image-preview', `${url}`);
@@ -64,8 +65,8 @@ class ButtonHandler {
 	}
 
 	static removeButtons() {
-    const editButton = $('edit-button');
-    const saveButton = $('save-button');
+    const editButton = ID('edit-button');
+    const saveButton = ID('save-button');
     if (editButton) editButton.remove();
     if (saveButton) saveButton.remove();
   }

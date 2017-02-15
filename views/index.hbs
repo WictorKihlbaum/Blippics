@@ -1,17 +1,22 @@
-<div class="mdl-grid" id="index-grid">
-  <div class="mdl-cell mdl-cell--12-col" id="logo-cell">
-    <h1 class="mdl-typography--display-4 mdl-color-text--accent">
-      Blippics
-    </h1>
+<div id="fullpage">
+  <div class="section" data-anchor="home" id="home-section">
+    <div class="main-container">
+      {{> home }}
+    </div>
   </div>
-  <div class="mdl-cell mdl-cell--12-col">
-    <a href="/editor" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-      <i class="material-icons">brush</i>
-      Edit your image
-    </a>
-    <a href="/about" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-      <i class="material-icons">info_outline</i>
-      About
-    </a>
+  <div class="section" data-anchor="editor">
+    <div class="main-container">
+      {{> editor }}
+    </div>
+  </div>
+  <div class="section" data-anchor="about">
+    <div class="main-container">
+      {{> about }}
+    </div>
+  </div>
+  <div class="section" data-anchor="contact">
+    <div class="main-container">
+      {{> contact }}
+    </div>
   </div>
 </div>

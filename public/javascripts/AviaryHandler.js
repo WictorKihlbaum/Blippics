@@ -1,7 +1,7 @@
 import ButtonHandler from './ButtonHandler';
 import Secrets from '../../Secrets.json';
 import Message from './Message';
-import $ from './Helper';
+import ID from './Helper';
 
 
 class AviaryHandler {
@@ -20,13 +20,13 @@ class AviaryHandler {
 
 			onSave: (imageID, newURL) => {
 				this.newURL = newURL; // Save url for use in onClose().
-        $('dropzone').style.backgroundImage = 'url('+newURL+')';
-        $('image-preview').setAttribute('src', `${newURL}`);
+        ID('dropzone').style.backgroundImage = 'url('+newURL+')';
+        ID('image-preview').setAttribute('src', `${newURL}`);
         this.feather.close();
 			},
 			onClose: userHasSaved => {
 				if (userHasSaved) {
-          $('edit-button').remove();
+          ID('edit-button').remove();
 				  // Update edit button and add save button.
           ButtonHandler.addEditButton(this.newURL);
           ButtonHandler.addSaveButton(this.newURL);

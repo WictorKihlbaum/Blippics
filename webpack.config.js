@@ -3,6 +3,9 @@ var webpack = require('webpack');
 module.exports = {
   entry: './public/javascripts/index.js',
   plugins: [new webpack.optimize.UglifyJsPlugin()],
+  externals: {
+    jquery: 'jQuery'
+  },
   module: {
     loaders: [{
       test: /\.js$/,

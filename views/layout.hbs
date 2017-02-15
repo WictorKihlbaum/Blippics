@@ -1,85 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blippics | {{ title }}</title>
+    <title>Blippics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/custom.css" />
     <link rel="stylesheet" href="/framework/dist/material.blue-purple.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="/modules/pace-progress/themes/blue/pace-theme-minimal.css" />
-    <link rel="stylesheet" href="/modules/hover.css/css/hover-min.css" />
+    <link rel="stylesheet" href="/modules/fullpage.js/dist/jquery.fullpage.min.css" />
     <link rel="stylesheet" href="/modules/animate.css/animate.min.css" />
-    <link rel="stylesheet" href="/modules/offline-js/themes/offline-theme-default.css" />
-    <link rel="stylesheet" href="/modules/offline-js/themes/offline-language-english.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400">
   </head>
   <body>
-    <div class="mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-layout__header--transparent">
-        <div class="mdl-layout__header-row">
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation" id="top-right-nav">
-            <a class="mdl-navigation__link hvr-grow" href="https://www.facebook.com/wictor.kihlbaum">
-              <img src="/images/facebook-large.png" alt="Facebook logotype" title="Visit my Facebook" />
-            </a>
-            <a class="mdl-navigation__link hvr-grow" href="https://twitter.com/WictorKihlbaum">
-              <img src="/images/twitter-large.png" alt="Twitter logotype" title="Visit my Twitter" />
-            </a>
-            <a class="mdl-navigation__link hvr-grow" href="https://github.com/WictorKihlbaum">
-              <img src="/images/github-large.png" alt="GitHub logotype" title="Visit my GitHub" />
-            </a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">
-          Blippics
-        </span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/">
-            <img src="/images/home-small.png" alt="Home icon" />
-            Home
-          </a>
-          <a class="mdl-navigation__link" href="/about">
-            <img src="/images/about-small.png" alt="About icon" />
-            About
-          </a>
-          <a class="mdl-navigation__link" href="/contact">
-            <img src="/images/contact-small.png" alt="Contact icon" />
-            Contact
-          </a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-        <div class="page-content animated fadeIn">
-          {{{ body }}}
-        </div>
-      </main>
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">
-            © 2017 Blippics
-          </div>
-          <ul class="mdl-mini-footer__link-list">
-            <li>
-              <a href="/about">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/contact">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
 
-    </div> <!-- end mdl-layout -->
+    {{> header }}
+
+    {{{ body }}}
 
     <script src="/framework/material.min.js"></script>
-    <script src="/modules/pace-progress/pace.min.js"></script>
-    <script src="/modules/offline-js/offline.min.js"></script>
-    {{{ scripts }}}
+    <script src="/modules/jquery/dist/jquery.min.js"></script>
+    <script src="/modules/fullpage.js/dist/jquery.fullpage.min.js"></script>
+    <script src="/modules/filepicker-js/dist/filepicker.min.js"></script>
+    <script src='https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js'></script>
+    <!--<script src="/modules/pixi.js/dist/pixi.min.js"></script>-->
+    <script src="/builds/bundle.min.js"></script>
+
   </body>
 </html>

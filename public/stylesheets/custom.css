@@ -1,64 +1,51 @@
 
 body {
-    /*background-image: url("../images/body-bg.jpg");
-    background-size: cover;*/
-    background-color: #ECEFF1;
+  background-color: #ECEFF1;
 }
 
-.mdl-layout__drawer-button,
-.mdl-mini-footer,
-.mdl-logo {
-  color: #AA00FF !important;
+header {
+    position: fixed;
+    z-index: 70;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
-    font-weight: bold;
+.section {
+  background-color: #FAFAFA;
 }
 
-.mdl-layout__drawer .mdl-navigation .mdl-navigation__link img {
-    margin-right: 8px;
+.main-container {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
-.mdl-layout__header-row>* {
-  color: #AA00FF;
-}
+
 
 .mdl-layout__header-row .mdl-navigation__link {
   padding: 0 !important;
 }
+
 .mdl-layout__header-row .mdl-navigation__link:not(:last-child) {
   margin-right: 24px !important;
 }
 
 #top-right-nav img {
-    width: 32px;
+  width: 32px;
 }
 
-.mdl-mini-footer {
-  background: transparent !important;
+#home {
+  padding: 12px !important;
 }
 
-.page-topic {
-    margin-top: 0;
-}
 
 /* Index page */
 
 #index-grid h1 {
-    font-size: 14em;
+  font-size: 14em;
 }
 #index-grid .mdl-cell {
-    text-align: center;
+  text-align: center;
 }
 #index-grid .mdl-cell a {
-    font-weight: bold;
-}
 
-
-/* Choose page */
-
-#choose-topic {
-  text-align: center;
 }
 
 
