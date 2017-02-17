@@ -1,9 +1,11 @@
+import $ from 'jquery';
+
 export default function createButton(type, icon = type) {
-  let button = document.createElement('button');
-  button.setAttribute('class', 'mdl-button mdl-js-button mdl-button--fab mdl-button--primary');
-  button.setAttribute('id', `${type}-button`);
-  button.setAttribute('title', `${type} image`);
-  button.setAttribute('aria-label', `${type} image`);
-  button.innerHTML = `<i class="material-icons">${icon}</i>`;
+  let button = $('<button></button>');
+  button.addClass('mdl-button mdl-js-button mdl-button--fab mdl-button--primary');
+  button.attr('id', `${type}-button`);
+  button.attr('title', `${type} image`);
+  button.attr('aria-label', `${type} image`);
+  button.html(`<i class="material-icons">${icon}</i>`);
   return button;
 };

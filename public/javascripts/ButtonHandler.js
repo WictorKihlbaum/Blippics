@@ -1,8 +1,7 @@
 import AviaryHandler from './AviaryHandler';
 import Button from './Button';
 import Secrets from '../../Secrets.json';
-import Message from './Message';
-import ID from './Helper';
+import $ from 'jquery';
 
 
 class ButtonHandler {
@@ -11,7 +10,7 @@ class ButtonHandler {
     const button = new Button('choose', 'photo');
     const self = ButtonHandler;
 
-    button.addEventListener('click', () => {
+    button.click(() => {
       filepicker.setKey(Secrets.Filepicker);
       filepicker.pick(
         {
@@ -21,28 +20,24 @@ class ButtonHandler {
         },
         function onSuccess(blob) {
           self.removeButtons();
-          // Save mimetype for later use.
+          // Save mimetype for addSaveButton().
           self.imageMimetype = blob.mimetype;
           // Show image and add edit button.
-          ID('dropzone').style.backgroundImage = 'url('+blob.url+')';
-          ID('image-preview').setAttribute('src', `${blob.url}`);
+          $('#image-preview').attr('src', `${blob.url}`);
           self.addEditButton(blob.url);
-          AviaryHandler.instantiateFeather(); // TODO: Make better solution.
         },
         function onError(fpError) {
-          console.log(fpError);
-          Message.show(fpError.toString(), 'user-message-error');
+          console.log(fpError.toString());
         }
       );
     });
-    ID('choose-button-field').appendChild(button);
+    $('#choose-button-field').append(button);
   }
 
   static addSaveButton(url) {
     const button = new Button('save');
-    const buttonField = ID('save-button-field');
-    buttonField.appendChild(button);
-    button.addEventListener('click', () => {
+    this.addAnimation(button);
+    button.click(() => {
       filepicker.exportFile(
         url,
         {
@@ -53,22 +48,27 @@ class ButtonHandler {
         }
       );
     });
+    $('#save-button-field').append(button);
   }
 
   static addEditButton(url) {
     const button = new Button('edit');
-    const buttonField = ID('edit-button-field');
-    buttonField.appendChild(button);
-    button.addEventListener('click', () => {
+    this.addAnimation(button);
+    button.click(() => {
       AviaryHandler.launchEditor('image-preview', `${url}`);
     });
+    $('#edit-button-field').append(button);
 	}
 
 	static removeButtons() {
-    const editButton = ID('edit-button');
-    const saveButton = ID('save-button');
+    const editButton = $('#edit-button');
+    const saveButton = $('#save-button');
     if (editButton) editButton.remove();
     if (saveButton) saveButton.remove();
+  }
+
+  static addAnimation(button) {
+    return button.addClass('animated bounceIn').css('animation-delay', '1.2s');
   }
 
 }

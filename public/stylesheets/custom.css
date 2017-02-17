@@ -4,12 +4,12 @@ body {
 }
 
 header {
-    position: fixed;
-    z-index: 70;
+  position: fixed;
+  z-index: 70;
 }
 
 .section {
-  background-color: #FAFAFA;
+  background-color: #90CAF9;
 }
 
 .main-container {
@@ -18,200 +18,154 @@ header {
 }
 
 
+/* HOME */
+
+#home-section {
+
+}
+
+#index-grid .mdl-cell {
+  text-align: center;
+}
+
+#blippics-topic {
+  font-family: 'Ubuntu', cursive;
+  color: #E3F2FD;
+  font-size: 14em;
+}
+#button-cell {
+  padding: 64px;
+}
+#button-cell a {
+  margin: 12px;
+}
+#home-button {
+  padding: 14px 22px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+#about-button {
+  width: 64px;
+  height: 64px;
+}
+
+
+/* EDITOR */
+
+#editor-section {
+  background-image:
+    url("../images/easel.png");
+  background-repeat: no-repeat;
+  background-size: 40%, cover;
+  background-position: center bottom;
+}
+
+#editor-grid {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+#image-preview-cell {
+  /*padding: 52px;*/
+}
+
+#image-preview {
+  width: 20vw;
+  margin: 32px;
+  border-radius: 3px;
+}
+
+#buttons-field {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 16px;
+}
 
 .mdl-layout__header-row .mdl-navigation__link {
   padding: 0 !important;
 }
-
 .mdl-layout__header-row .mdl-navigation__link:not(:last-child) {
   margin-right: 24px !important;
 }
-
 #top-right-nav img {
   width: 32px;
 }
 
-#home {
-  padding: 12px !important;
-}
-
-
-/* Index page */
-
-#index-grid h1 {
-  font-size: 14em;
-}
-#index-grid .mdl-cell {
-  text-align: center;
-}
-#index-grid .mdl-cell a {
-
-}
-
-
-/* Edit image page */
-
-#edit-image-grid {
-  max-width: 960px;
-  margin-top: 64px;
-}
-#edit-image-grid .mdl-cell {
-  text-align: center;
-}
-
-#notie-alert-text {
-    line-height: 1.2;
-    font-size: 22px;
-}
-
 #social-buttons-row {
-    padding: 20px 10px 0 0;
-}
-
-h1 {
-    margin: 0 auto;
-}
-
-.page-content {
-    margin: 45px auto;
-    width: 80%;
-    padding: 0 20px;
-}
-
-#image-container {
-    margin: 20px 0;
-}
-#image-container .mdl-button {
-    margin-bottom: 8px;
-}
-
-#dropzone {
-    padding: 10px;
-    border-radius: 6px;
-    background-color: rgba(255,255,255,0.5);
-    min-height: 600px;
-
-    background-image: url('../images/placeholder_image.png');
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-/* ---NOTE FOR FUTURE---
- * The Aviary editor has to work with an image element.
- * However, I don't want that. I use the background as
- * presentation instead. This is why I hide this image element.
- */
-#image-preview {
-    display: none;
-}
-#editable-image {
-    max-width: 100%;
-    border-radius: 5px;
+  padding: 20px 10px 0 0;
 }
 
 .contact-lists {
-    max-width: 550px;
-    margin: 0 !important;
+  max-width: 550px;
+  margin: 0 !important;
 }
 .contact-lists img {
-    width: 50px;
-    margin-right: 15px;
+  width: 50px;
+  margin-right: 15px;
 }
 
-#action-buttons-field #choose-button:hover,
-#action-buttons-field #edit-button:hover,
-#action-buttons-field #save-button:hover {
-    background-color: rgba(33, 150, 243, 0.8);
-}
-#action-buttons-field .has-hover:hover {
-    background-color: rgba(33, 150, 243, 0.8);
-}
-
-/* USER MESSAGE */
-
-.user-message {
-    position: relative;
-    display: block;
-    max-width: 620px;
-    margin: 10px auto;
-    padding: 15px;
-    border-radius: 12px;
-}
-
-#close-message-button {
-    color: white;
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    cursor: pointer;
-}
-
-#user-message-error {
-    color: #D64541;
-    background-color: #F1A9A0;
-    background-color: rgba(241, 169, 160, .7);
-}
 
 /* Contact, About */
 
 #about-text p,
 #contact-text {
-    font-size: 18px;
-    line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 #worth-noting {
-    font-weight: bold;
-    text-decoration: underline;
-    display: block;
-    margin-top: 25px;
-    margin-bottom: 5px;
+  font-weight: bold;
+  text-decoration: underline;
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 5px;
 }
 
 #about-text,
 #contact-text {
-    max-width: 550px;
+  max-width: 550px;
 }
 
 .mdl-list__item a {
-    color: #757575 !important;
-    text-decoration: none;
+  color: #757575 !important;
+  text-decoration: none;
 }
 
 
 /* Background edge */
 
 .quote {
-    background: #BA68C8;
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    font-family: 'Fira Sans', sans-serif;
-    margin: 50px 0;
-    padding: 20px 40px;
+  background: #BA68C8;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family: 'Fira Sans', sans-serif;
+  margin: 50px 0;
+  padding: 20px 40px;
 }
 .quote:before, .quote:after {
-    background: inherit;
-    content: '';
-    display: block;
-    height: 50%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: -1;
-    -webkit-backface-visibility: hidden;
+  background: inherit;
+  content: '';
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  -webkit-backface-visibility: hidden;
 }
 .quote:before {
-    top: 0;
-    -webkit-transform: skewY(1.5deg);
-    transform: skewY(1.5deg);
-    -webkit-transform-origin: 100% 0;
-    transform-origin: 100% 0;
+  top: 0;
+  -webkit-transform: skewY(1.5deg);
+  transform: skewY(1.5deg);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
 }
 .quote:after {
-    bottom: 0;
-    -webkit-transform: skewY(-1.5deg);
-    transform: skewY(-1.5deg);
-    -webkit-transform-origin: 100%;
-    transform-origin: 100%;
+  bottom: 0;
+  -webkit-transform: skewY(-1.5deg);
+  transform: skewY(-1.5deg);
+  -webkit-transform-origin: 100%;
+  transform-origin: 100%;
 }
