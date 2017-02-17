@@ -7,3 +7,6 @@ Blippics was initially the product of a final project in one of my previously co
 
 ## Website
 https://www.blippics.com (The hosted version is not the NodeJS Express version yet)
+
+## TODO
+* Add image conversion with Filestack API (https://www.filestack.com/docs/image-transformations/conversion)
