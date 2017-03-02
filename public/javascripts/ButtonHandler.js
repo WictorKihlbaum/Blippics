@@ -38,6 +38,7 @@ class ButtonHandler {
     const button = new Button('save');
     this.addAnimation(button);
     button.click(() => {
+      filepicker.setKey(Secrets.Filepicker);
       filepicker.exportFile(
         url,
         {
@@ -68,7 +69,9 @@ class ButtonHandler {
   }
 
   static addAnimation(button) {
-    return button.addClass('animated bounceIn').css('animation-delay', '1.2s');
+    return button
+      .addClass('animated bounceIn')
+      .css('animation-delay', '1.0s');
   }
 
 }

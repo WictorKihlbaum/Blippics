@@ -5,9 +5,8 @@ import $ from 'jquery';
 
 class AviaryHandler {
 
-	static instantiateFeather() {
-    // Instantiate editor.
-    this.feather = new Aviary.Feather({
+	static initiateEditor() {
+    this.editor = new Aviary.Feather({
       apiKey: Secrets.Aviary,
       theme: 'minimum',
       tools: 'all',
@@ -20,23 +19,25 @@ class AviaryHandler {
       onSave: (imageID, newURL) => {
         this.newURL = newURL; // Save url for onClose().
         $('#image-preview').attr('src', `${newURL}`);
-        this.feather.close();
+        this.editor.close();
       },
-      onClose: userHasSaved => {
-        if (userHasSaved) {
+      onClose: imageIsSaved => {
+        if (imageIsSaved) {
+          // Remove old edit button and add the new one.
           $('#edit-button').remove();
           ButtonHandler.addEditButton(this.newURL);
           ButtonHandler.addSaveButton(this.newURL);
         }
       },
       onError: error => {
+        // TODO: Show message for user.
         console.log(error);
       }
     });
 	}
 
   static launchEditor(id, src) {
-	  this.feather.launch({ image: id, url: src });
+	  this.editor.launch({ image: id, url: src });
 		return false;
 	}
 
