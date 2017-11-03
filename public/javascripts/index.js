@@ -5,7 +5,6 @@ import AviaryHandler from './AviaryHandler';
 
 /*
  * Initialize FullpageJS.
- * TODO: Make this prettier.
  */
 $(document).ready(() => {
   $('#fullpage').fullpage({
@@ -46,24 +45,4 @@ $(document).ready(() => {
     }
 
   });
-});
-
-/* 1) Add a click handler to a button that calls a helper function */
-$('#csdk-login').click(() => {
-
-  console.log(AdobeCreativeSDK);
-
-  /* 2) Get auth status */
-  AdobeCreativeSDK.getAuthStatus(csdkAuth => {
-
-    /* 3) Handle auth based on status */
-    if (csdkAuth.isAuthorized) {
-      // The user is logged in and has authorized your site.
-      console.log('Logged in!');
-    } else {
-      // Trigger a login
-      AdobeCreativeSDK.login(handleCsdkLogin);
-    }
-  });
-
 });
