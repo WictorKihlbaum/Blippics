@@ -33,9 +33,6 @@ header {
   font-weight: bold;
   font-size: 5vw;
 }
-.text {
-  font-size: 1.5vw !important;
-}
 
 
 /* HOME */
@@ -121,10 +118,9 @@ header {
   text-align: right;
 }
 
-#about-grid p {
+#about-text p {
   font-size: 20px;
   line-height: 1.2;
-  font-weight: 300;
 }
 
 #worth-noting {
@@ -143,8 +139,9 @@ header {
 }
 
 #contact-text {
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 20px;
+  line-height: 1.2;
+  max-width: 700px;
 }
 
 .contact-lists {
@@ -155,10 +152,6 @@ header {
 .contact-lists img {
   width: 44px;
   margin-right: 15px;
-}
-
-#contact-text {
-  max-width: 550px;
 }
 
 .mdl-list__item a {
